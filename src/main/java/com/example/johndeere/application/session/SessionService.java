@@ -6,6 +6,7 @@ import com.example.johndeere.domain.repository.MachineRepository;
 import com.example.johndeere.domain.repository.SessionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
 
@@ -18,7 +19,7 @@ public class SessionService {
     @Autowired
     private MachineRepository machineRepository;
 
-
+    @Transactional
     public void newSession(MachineSession session) {
 
         Machine machine = checkAndCloseMachineOpenSessions(session);
@@ -44,6 +45,7 @@ public class SessionService {
 
     private void closeActiveSession(MachineSession activeSession, MachineSession newSession) {
         MachineSession sessionClosed = MachineSession.builder()
+                .machineSessionId(activeSession.getMachineSessionId())
                 .machine(activeSession.getMachine())
                 .sessionId(activeSession.getSessionId())
                 .startAt(activeSession.getStartAt())

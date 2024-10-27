@@ -25,6 +25,6 @@ public class MachineRepositoryImpl implements MachineRepository {
 
     public Machine save (Machine machine){
         return machineDAOMapper.toDomain(
-                machineRepositoryJPA.save(machineDAOMapper.toDAO(machine)));
+                machineRepositoryJPA.saveAndFlush(machineDAOMapper.toDAO(machine)));
     }
 }
