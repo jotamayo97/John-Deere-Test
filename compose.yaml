@@ -4,3 +4,12 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: machines
+    ports:
+      - "5432:5432"

@@ -4,16 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 @Getter
 @AllArgsConstructor
 @Builder
-public class Session {
-
-    private final String sessionId;
+public class Machine {
     private final String machineId;
-    private final LocalDateTime startAt;
-    private final LocalDateTime endAt;
+    private final Instant createdAt;
 
 }
