@@ -1,4 +1,4 @@
-package com.example.johndeere.application.session;
+package com.example.johndeere.application;
 
 import com.example.johndeere.domain.model.Event;
 import com.example.johndeere.domain.model.Machine;

@@ -1,7 +1,7 @@
 package com.example.johndeere.infraestructure.messages;
 
-import com.example.johndeere.application.session.SessionEventsService;
-import com.example.johndeere.application.session.SessionService;
+import com.example.johndeere.application.SessionEventsService;
+import com.example.johndeere.application.SessionService;
 import com.example.johndeere.infraestructure.messages.dto.SessionDTO;
 import com.example.johndeere.infraestructure.messages.dto.SessionDTOMapper;
 import com.example.johndeere.infraestructure.messages.dto.SessionEventsDTO;
