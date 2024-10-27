@@ -1,9 +1,11 @@
 package com.example.johndeere.infraestructure.messages;
 
+import com.example.johndeere.application.session.SessionEventsService;
 import com.example.johndeere.application.session.SessionService;
 import com.example.johndeere.infraestructure.messages.dto.SessionDTO;
 import com.example.johndeere.infraestructure.messages.dto.SessionDTOMapper;
 import com.example.johndeere.infraestructure.messages.dto.SessionEventsDTO;
+import com.example.johndeere.infraestructure.messages.dto.SessionEventsDTOMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -21,6 +23,10 @@ public class MessageListener {
     private SessionService sessionService;
     @Autowired
     private SessionDTOMapper sessionMapper;
+    @Autowired
+    private SessionEventsDTOMapper eventsMapper;
+    @Autowired
+    private SessionEventsService sessionEventsService;
 
     @RabbitListener(queues = SESSIONS)
     public void handleSessions(String message) {
@@ -42,5 +48,7 @@ public class MessageListener {
         } catch (JsonProcessingException e) {
             throw new RuntimeException();
         }
+
+        sessionEventsService.newSessionEvents(eventsMapper.toDomainList(sessionEventsDTO));
     }
 }

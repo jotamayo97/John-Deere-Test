@@ -16,5 +16,4 @@ public class MachineSession {
     private final Machine machine;
     private final Instant startAt;
     private final Instant endAt;
-
 }

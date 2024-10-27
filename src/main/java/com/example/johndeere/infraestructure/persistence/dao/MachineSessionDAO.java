@@ -30,4 +30,5 @@ public class MachineSessionDAO {
     private Instant startAt;
 
     private Instant endAt;
+
 }

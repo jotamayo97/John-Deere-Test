@@ -26,6 +26,12 @@ public class SessionRepositoryImpl implements SessionRepository {
     }
 
     @Override
+    public Optional<MachineSession> findOneSessionActiveById(String sessionId) {
+        return sessionRepositoryJPA.findActiveSessionBySessionId(sessionId)
+                .map(mapper::toDomain);
+    }
+
+    @Override
     public MachineSessionDAO save(MachineSession machineSession) {
         return sessionRepositoryJPA.save(mapper.toDAO(machineSession));
     }
