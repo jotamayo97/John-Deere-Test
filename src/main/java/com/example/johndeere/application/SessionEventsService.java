@@ -31,4 +31,8 @@ public class SessionEventsService {
                 .toList();
         eventRepository.saveAll(updatedEvents);
     }
+
+    public List<Event> getAggregatedEvents(String machineId, String sessionId) {
+        return eventRepository.findByMachineAndSession(machineId, sessionId);
+    }
 }

@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface EventRepository {
     List<Event> saveAll(List<Event> event);
+
+    List<Event> findByMachineAndSession(String machine, String session);
 }

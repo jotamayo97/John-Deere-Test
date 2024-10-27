@@ -24,4 +24,5 @@ public class EventDAO {
     private Instant eventAt;
     private String eventType;
     private Long numericEventValue;
+
 }
