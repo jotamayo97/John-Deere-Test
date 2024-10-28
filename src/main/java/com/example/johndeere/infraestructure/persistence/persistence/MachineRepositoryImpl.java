@@ -7,6 +7,7 @@ import com.example.johndeere.infraestructure.persistence.jpa.MachineRepositoryJP
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -21,6 +22,11 @@ public class MachineRepositoryImpl implements MachineRepository {
     @Override
     public Optional<Machine> findById(String id) {
         return machineRepositoryJPA.findById(id).map(machineDAOMapper::toDomain);
+    }
+
+    @Override
+    public List<Machine> getAll() {
+        return machineDAOMapper.toDomain(machineRepositoryJPA.findAll());
     }
 
     public Machine save (Machine machine){
