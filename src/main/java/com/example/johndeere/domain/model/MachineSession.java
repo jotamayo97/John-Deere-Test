@@ -16,4 +16,14 @@ public class MachineSession {
     private final Machine machine;
     private final Instant startAt;
     private final Instant endAt;
+
+    public MachineSession finishSession(Instant closeDate){
+        return MachineSession.builder()
+                .machineSessionId(machineSessionId)
+                .machine(machine)
+                .sessionId(sessionId)
+                .startAt(startAt)
+                .endAt(closeDate)
+                .build();
+    }
 }

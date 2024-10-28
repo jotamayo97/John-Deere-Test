@@ -44,13 +44,7 @@ public class SessionService {
     }
 
     private void closeActiveSession(MachineSession activeSession, MachineSession newSession) {
-        MachineSession sessionClosed = MachineSession.builder()
-                .machineSessionId(activeSession.getMachineSessionId())
-                .machine(activeSession.getMachine())
-                .sessionId(activeSession.getSessionId())
-                .startAt(activeSession.getStartAt())
-                .endAt(newSession.getStartAt())
-                .build();
+        MachineSession sessionClosed = activeSession.finishSession(newSession.getStartAt());
         sessionRepository.save(sessionClosed);
     }
 
