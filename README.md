@@ -1,4 +1,4 @@
-# John Deere Code Challenge 
+An 8-hours John Deere Code Challenge. 
 
 After starting the application, access RabbitMQ’s management interface to test the queues and streams.
 
